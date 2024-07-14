@@ -7,7 +7,7 @@ const Engine = zod.object({
     HP: zod.number({
         required_error: "HP is required",
     }),
-    amperge: zod.number({
+    amperage: zod.number({
         required_error: "Amperge is required",
     }),
     voltage: zod.number({
@@ -25,9 +25,9 @@ const Engine = zod.object({
 });
 
 export function validateEngine(data) {
-    return Engine.parse(data);
+    return Engine.safeParse(data);
 }
 
 export function validateEngineUpdate(data) {
-    return Engine.partial().parse(data);
+    return Engine.partial().safeParse(data);
 }
